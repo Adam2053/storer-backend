@@ -12,7 +12,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use(cors({
-  origin: "http://localhost:3000", // only allow your React frontend
+  origin: "https://storer-frontend.vercel.app", // only allow your React frontend
   credentials: true, // if you plan to send cookies
 }));
 
