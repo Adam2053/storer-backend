@@ -10,7 +10,7 @@ const REDIRECT_URI = process.env.GOOGLE_REDIRECT_URI; // e.g., http://localhost:
 const oauth2Client = new google.auth.OAuth2(
   CLIENT_ID,
   CLIENT_SECRET,
-  "http://localhost:3001/api/google/callback"
+  "https://storer-backend.onrender.com/api/google/callback"
 );
 
 export const googleAuthCallback = async (req, res) => {
@@ -40,7 +40,7 @@ export const googleAuthCallback = async (req, res) => {
     const { data: userInfo } = await oauth2.userinfo.get();
     console.log("🙋 User Info:", userInfo);
 
-    return res.redirect("http://localhost:3000/dashboard?googleLinked=true");
+    return res.redirect("https://arkive-saas.vercel.app/dashboard?googleLinked=true");
   } catch (error) {
     console.error("❌ OAuth callback error:", error.message);
     return res.status(500).send("OAuth error. Please try again.");
