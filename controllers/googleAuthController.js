@@ -10,7 +10,7 @@ const REDIRECT_URI = process.env.GOOGLE_REDIRECT_URI; // e.g., http://localhost:
 const oauth2Client = new google.auth.OAuth2(
   CLIENT_ID,
   CLIENT_SECRET,
-  "http://localhost:3001/api/google/callback"
+  "https://storer-backend.onrender.com/api/google/callback"
 );
 
 // 1. Route: Start Google OAuth2 Flow
@@ -61,7 +61,7 @@ export const googleAuthCallback = async (req, res) => {
     // ⚠️ TODO: Save tokens and userInfo to your database
     // await UserModel.update({ googleTokens: tokens, googleProfile: userInfo });
 
-    return res.redirect("http://localhost:3000/dashboard?googleLinked=success");
+    return res.redirect("https://arkive-saas.vercel.app/dashboard?googleLinked=success");
   } catch (error) {
     console.error("❌ OAuth callback error:", error.message);
     return res.status(500).send("OAuth error. Please try again.");
